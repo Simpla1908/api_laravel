@@ -1,7 +1,10 @@
 <?php
-
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\PhotoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+ 
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +21,8 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+Route::get('/users', [TestController::class, 'getMethode']);
 
-Route::get('/users', function () {
-    $user=new stdClass();
-    $user->name="Simplice Landu";
-    $user->email="simplicelandu1908@gmail.com";
-    return response()->json($user);
-});
+Route::post('/users', [TestController::class, 'postMethode']);
 
+Route::post('/photos', [PhotoController::class, 'store']);
