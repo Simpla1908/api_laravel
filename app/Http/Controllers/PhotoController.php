@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use stdClass;
+use app\Models\Photo;
 
 class PhotoController extends Controller
 {
@@ -47,11 +48,11 @@ class PhotoController extends Controller
         if($validator->fails()){
             return response()->json(['errors'=>$validator->errors()]);
         }
-        
-        $photo=new stdClass();
-        $photo->title=$request->input('title');
-        $photo->description=$request->input('description');
-        return response()->json($photo);
+        Photo::create([
+            'title'=>$request->input('title'),
+            'description'=>$request->input('description')
+        ]);
+        return response()->json(['success'=>'Informations enregistrées avec succes']);
     }
 
     /**

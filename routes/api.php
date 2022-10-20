@@ -26,3 +26,16 @@ Route::get('/users', [TestController::class, 'getMethode']);
 Route::post('/users', [TestController::class, 'postMethode']);
 
 Route::post('/photos', [PhotoController::class, 'store']);
+
+Route::get('/env',function(){
+
+        return response()->json([
+        'connection'=>env('DB_CONNECTION'),
+        'host'=>env('DB_HOST'),
+        'port'=>env('DB_PORT'),
+        'database'=>env('DB_DATABASE'),
+        'username'=>env('DB_USERNAME'),
+        'password'=>env('DB_PASSWORD')
+        ]);
+
+});
