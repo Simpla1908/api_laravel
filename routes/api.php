@@ -25,7 +25,7 @@ Route::get('/users', [TestController::class, 'getMethode']);
 
 Route::post('/users', [TestController::class, 'postMethode']);
 
-Route::post('/photos', [PhotoController::class, 'store']);
+Route::post('/photos', [PhotoController::class, 'store'])->middleware('App\Http\Middleware\PhotoMiddleware');
 
 Route::get('/env',function(){
 
