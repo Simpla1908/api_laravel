@@ -21,21 +21,24 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/users', [TestController::class, 'getMethode']);
+// Route::get('/users', [TestController::class, 'getMethode']);
 
-Route::post('/users', [TestController::class, 'postMethode']);
+// Route::post('/users', [TestController::class, 'postMethode']);
+
+
+// Route::get('/env',function(){
+
+//         return response()->json([
+//         'connection'=>env('DB_CONNECTION'),
+//         'host'=>env('DB_HOST'),
+//         'port'=>env('DB_PORT'),
+//         'database'=>env('DB_DATABASE'),
+//         'username'=>env('DB_USERNAME'),
+//         'password'=>env('DB_PASSWORD')
+//         ]);
+
+// });
+
+Route::get('/photos', [PhotoController::class, 'index']);
 
 Route::post('/photos', [PhotoController::class, 'store'])->middleware('App\Http\Middleware\PhotoMiddleware');
-
-Route::get('/env',function(){
-
-        return response()->json([
-        'connection'=>env('DB_CONNECTION'),
-        'host'=>env('DB_HOST'),
-        'port'=>env('DB_PORT'),
-        'database'=>env('DB_DATABASE'),
-        'username'=>env('DB_USERNAME'),
-        'password'=>env('DB_PASSWORD')
-        ]);
-
-});
