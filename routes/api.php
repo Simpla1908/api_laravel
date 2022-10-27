@@ -1,6 +1,7 @@
 <?php
-use App\Http\Controllers\TestController;
-use App\Http\Controllers\PhotoController;
+// use App\Http\Controllers\TestController;
+// use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\AuthenticationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +40,10 @@ use Illuminate\Support\Facades\Route;
 
 // });
 
-Route::get('/photos', [PhotoController::class, 'index']);
+// Route::get('/photos', [PhotoController::class, 'index']);
 
-Route::post('/photos', [PhotoController::class, 'store'])->middleware('App\Http\Middleware\PhotoMiddleware');
+// Route::post('/photos', [PhotoController::class, 'store'])->middleware('App\Http\Middleware\PhotoMiddleware');
+
+
+Route::post('/register', [AuthenticationController::class, 'register']);
+Route::post('/login', [AuthenticationController::class, 'login']);
