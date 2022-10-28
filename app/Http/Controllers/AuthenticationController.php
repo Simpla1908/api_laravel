@@ -42,7 +42,7 @@ class AuthenticationController extends Controller
 
     }else{
         
-        return response()->json(['error'=>'Mauvais identifiants de connexion']);
+        return response()->json(['error'=>'Mauvais identifiants de connexion'],401);
 
     
     }
