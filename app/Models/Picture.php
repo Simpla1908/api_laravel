@@ -11,4 +11,12 @@ class Picture extends Model
   protected $fillable = [
     'title','description','image'
   ];
+
+  protected $with = [
+    'user'
+  ];
+
+  public function user(){
+    return $this->belongsTo('App\Models\User');
+  }
 }

@@ -4,6 +4,7 @@
 use App\Http\Controllers\AuthenticationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\models\Picture;
 
  
 
@@ -47,3 +48,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [AuthenticationController::class, 'register']);
 Route::post('/login', [AuthenticationController::class, 'login']);
+
+Route::get('/pictures',function (){
+$pictures=Picture::all();
+return response()->json($pictures);
+});
