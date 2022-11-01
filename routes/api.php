@@ -2,6 +2,7 @@
 // use App\Http\Controllers\TestController;
 // use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\PictureController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\models\Picture;
@@ -45,7 +46,7 @@ use App\models\Picture;
 
 // Route::post('/photos', [PhotoController::class, 'store'])->middleware('App\Http\Middleware\PhotoMiddleware');
 
-
+Route::post('/pictures', [PictureController::class, 'store']);
 Route::post('/register', [AuthenticationController::class, 'register']);
 Route::post('/login', [AuthenticationController::class, 'login']);
 
