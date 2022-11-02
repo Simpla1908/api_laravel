@@ -6,12 +6,16 @@ use Illuminate\Http\Request;
 use App\Models\Picture;
 use App\Http\Validation\PictureValidation;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 
 class PictureController extends Controller
 {
+
     
     public function store(Request $request,PictureValidation $validation){
+       // return response()->json(Auth::user());
+
         $validator=Validator::make($request->all(),$validation->rules(),$validation->messages());
         
         if($validator->fails()){
@@ -27,7 +31,7 @@ class PictureController extends Controller
             'image' =>$file,
             'title' => $request->input('title'),
             'description' =>$request->input('description'),
-            'user_id' =>5
+            'user_id' =>Auth::user()->id
 
         ]);
 

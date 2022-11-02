@@ -46,7 +46,7 @@ use App\models\Picture;
 
 // Route::post('/photos', [PhotoController::class, 'store'])->middleware('App\Http\Middleware\PhotoMiddleware');
 
-Route::post('/pictures', [PictureController::class, 'store']);
+Route::post('/pictures', [PictureController::class, 'store'])->middleware('App\Http\Middleware\React');
 Route::post('/register', [AuthenticationController::class, 'register']);
 Route::post('/login', [AuthenticationController::class, 'login']);
 
