@@ -45,12 +45,14 @@ use App\models\Picture;
 // Route::get('/photos', [PhotoController::class, 'index']);
 
 // Route::post('/photos', [PhotoController::class, 'store'])->middleware('App\Http\Middleware\PhotoMiddleware');
+// Route::get('/pictures',function (){
+// $pictures=Picture::all();
+// return response()->json($pictures);
+// });
 
+Route::get('/pictures', [PictureController::class, 'index']);
+Route::get('/pictures/{id}', [PictureController::class, 'show'])->middleware('App\Http\Middleware\React');
 Route::post('/pictures', [PictureController::class, 'store'])->middleware('App\Http\Middleware\React');
 Route::post('/register', [AuthenticationController::class, 'register']);
 Route::post('/login', [AuthenticationController::class, 'login']);
 
-Route::get('/pictures',function (){
-$pictures=Picture::all();
-return response()->json($pictures);
-});

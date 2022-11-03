@@ -11,7 +11,22 @@ use Illuminate\Support\Facades\Auth;
 
 class PictureController extends Controller
 {
+    public function index(){
+        $pictures=Picture::all();
+        return response()->json($pictures);
 
+
+    }
+    public function show($id){
+        $pictures=Picture::find($id);
+        if(!$pictures){
+            return response()->json(['message'=>'Ressource Not Found'],403);
+
+        }
+        return response()->json($pictures);
+
+
+    }
     
     public function store(Request $request,PictureValidation $validation){
        // return response()->json(Auth::user());
