@@ -48,5 +48,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Picture');
       }
 
+      public function liked(){
+        return $this->belongsTo('App\Models\Picture');
+    }
+
 
 }

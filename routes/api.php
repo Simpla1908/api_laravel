@@ -50,9 +50,9 @@ use App\models\Picture;
 // return response()->json($pictures);
 // });
 
-Route::get('/pictures', [PictureController::class, 'index']);
+Route::post('/pictures', [PictureController::class, 'search']);
 Route::get('/pictures/{id}', [PictureController::class, 'show'])->middleware('App\Http\Middleware\React');
-Route::post('/pictures', [PictureController::class, 'store'])->middleware('App\Http\Middleware\React');
+Route::post('/pictures/store', [PictureController::class, 'store'])->middleware('App\Http\Middleware\React');
 Route::post('/register', [AuthenticationController::class, 'register']);
 Route::post('/login', [AuthenticationController::class, 'login']);
 
