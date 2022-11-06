@@ -13,18 +13,10 @@ class GoogleController extends Controller
         return Socialite::driver($provider)->redirect();
     }
     public function callback($provider){
-        try {
-            $getinfo=Socialite::driver($provider)->user();
-            $user=$this->createUser($getinfo,$provider);
-            auth()->login($user);
-            return redirect('http://localhost:3000/login/google'.$user->api_token);
-
-            } catch(\Throwable $th){
-                 
-                dd('Something went wrong!'.$th->getMessage());
-
-            }
-      
+        $getinfo=Socialite::drive($provider)->user();
+        $user=$this->createUser($getinfo,$provider);
+        auth()->login($user);
+        return redirect('http://localhost:3000/login/google'.$user->api_token);
     }
     public function createUser($getinfo,$provider){
         $user=User::where('provider_id',$getinfo->id)->first();
